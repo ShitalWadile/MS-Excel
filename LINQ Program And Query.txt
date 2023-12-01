@@ -1,0 +1,167 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApp
+{
+public class employee
+{
+public int ID{get;set;}
+public string FirstName{get;set;}
+public string LastName{get;set;}
+public string Title{get;set;}
+public string City{get;set;}
+public DateOnly DOB{get;set;}
+public DateOnly DOJ{get;set;}//{
+//DateTime DOB=Convert.ToInt32(Console.ReadLine());
+//}
+    
+
+}
+public class EmpInfo{
+public static void Main(string[] args){
+ var employee= new List<employee>();
+new employee(){ID=1001,FirstName="Malcolm",LastName="Daruwalla",Title="Manager",DOB=new DateOnly(1984,08,30),DOJ= new DateOnly(2011,06,08),City="Mumbai"};
+new employee(){ID=1002,FirstName="Asdin",LastName="DhallaAsst",Title="Manager",DOB=new DateOnly(1984,08,20),DOJ=DateOnly(2012,07,07),City="Mumbai"};
+new employee(){ID=1003,FirstName="Madhavi",LastName="Oza",Title="Consultant",DOB=new DateOnly(1987,11,14),DOJ=new DateOnly(2015,12,04),City="Pune"};
+new employee(){ID=1004,FirstName="Saba",LastName="Shaikh",Title="SE",DOB=new DataOnly(1990,06,03),DOJ=new DateOnly(2016,02,02),City="Pune"};
+new employee(){ID=1005,FirstName="Nazia",LastName="Shaikh",Title="SE",DOB=new DateOnly(1991,03,08),DOJ=new DateOnly(2016,02,02),City="Mumbai"};
+new employee(){ID=1006,FirstName="Amit",LastName="Pathak",Title="Consultant",DOB=new DateOnly(1989,11,07),DOJ=new DateOnly(2014,08,08),City="Chennai"};
+new employee(){ID=1007,FirstName="Vijay",LastName="Natarajan",Title="Consultant",DOB=new DateOnly(1989,12,02),DOJ=new DateOnly(2015,06,01),City="Mumbai"};
+new employee(){ID=1008,FirstName="Rahul",LastName="Dubey",Title="Associate",DOB=new DateOnly(1993,11,11),DOJ=new DateOnly2014,11,06),City="Chennai"};
+new employee(){ID=1009,FirstName="Suresh",LastName="Mistry",Title="Associate",DOB=new DateOnly(1992,08,12),DOJ=new DateOnly(2014,12,03),City="Chennai"};
+new employee(){ID=1010,FirstName="Sumit",LastName="Shah",Title="Manager",DOB=new DateOnly(19912,04,12),DOJ=new DateOnly(2016,01,01),City="Pune"};
+foreach(var Employee in employee){
+  Console.WriteLine("ID:{0}",Employee.ID+" "+"/tFirst Name:{1}",Employee.FirstName+ " "+"/tLast Name:{2}",Employee.LastName+" "+"/tTitle:{3}",Employee.Title+" "+"/tDOB:{4}",Employee.DOB+" "+"/tDOJ:{5}",Employee.DOJ+" "+"/tCity:{6}",Employee.City);
+
+}
+};
+Console.WriteLine("Display the details of employee ");
+IEnumerable<employee> Details=from Emp in List
+                              select Emp
+   foreach(var E in Details){
+   Console.WriteLine(E);
+}
+}	
+}
+====================================================================================================================================================================================================================================================================
+Query2=
+var MumbaiEmp=from M in employee
+              where M.City !="Mumbai"
+              select M;
+Console.WriteLine("Mumbai Location Employee:");
+foreach(employee Emp in MumbaiEmp){
+Console.WriteLine(Emp);
+}
+===========================================================================================================================================================================================================================================================================  
+query3
+var TitleEmp=from T in employee
+                where T.Title.Equals("AsstManager")
+                select T;
+Console.WriteLine("Assitance Managers:");
+foreach(employee Emp in TitleEmp)
+{
+Console.WriteLine(Emp);
+}  
+======================================================================================================================================================================================================================================================================
+query4
+var LName=from L in employee
+             where L.LastName.StartsWith("S")
+              select L;
+foreach(var name in LName)
+{
+Console.WriteLine(name);
+}
+================================================================================================================================================================================================================================================================================
+query5
+var Date1=from X in employee
+         where X.DateOnly.DOJ.Year>2015
+         select X
+foreach(var Dob in Date1){
+Console.WriteLine(Dob);
+}
+====================================================================================================================================================================
+query6
+var Date2=from Y in employee
+          where Y.DOB.Year<1990
+          select Y
+foreach(var date in Date2){
+   Console.WriteLine(date);	
+}
+===============================================================================================================================================================
+query7
+var Emp=from E in employee
+        where E.Title!=("Consultant")||E.Title!=("Associate")
+        select E
+foreach(var emp in employee){
+Console.WriteLine(emp);
+}
+
+==========================================================================================================================================================
+query8
+var TotalEmp=employee.Count();
+Console.WriteLine("Total Elemets:"+ TotalEmp);
+=======================================================================================================================================================
+query9
+var Location=from  i in employee
+               where i.City.Equals("Chennai")
+               select i;
+               employee.Count();
+Console.WriteLine("Chennai Location Employee");
+foreach(var emp in Location)
+{
+Console.WriteLine(emp);
+}
+=========================================================================================================================================
+query10
+var highest=from H in employee
+	    select employee.Max(s=>s.ID);
+Console.WriteLine("Highest Emp ID is:"+highest);
+=====================================================================================================================================
+query11
+var JDate=from J in employee
+          where J.DOJ>(1/1/2015)
+          select J
+foreach(var doj in JDate){
+     Console.WriteLine(doj);
+}
+
+=======================================================================================================================================
+query12
+var Assi=from A in employee
+         where A.Title !="Associate"
+         select A;
+Console.WriteLine("People who has Associate post");
+foreach(var Emp in Assi){
+Console.WriteLine(Emp);
+}
+======================================================================================================================================
+query13
+
+var City=from C in employee 
+          select C.City.Count();
+Console.WriteLine("Display city of emp");
+==========================================================================================================================
+query14
+
+var Display= from E in employee
+		         
+                group E by E.City ;
+Console.WriteLine("City and Title of Employee:");
+foreach( var Info in Display)
+{
+Console.WriteLine(Info.Count());
+} 
+==========================================================================================================================
+query15
+ var oldere=(from t in employee
+                select t.DOB).Max(); 
+ foreach(var youngest in older){
+ Console.WriteLine(youngest);
+ }
+===================================================================================================================
+          
